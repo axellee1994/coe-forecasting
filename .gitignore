@@ -1,0 +1,12 @@
+# python
+__pycache__/
+.ipynb_checkpoints/
+
+# node
+webapp/node_modules/
+webapp/dist/
+
+# tooling
+.vercel/
+*.tsbuildinfo
+nohup.out
