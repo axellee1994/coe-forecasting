@@ -24,13 +24,26 @@ export const CATEGORIES: Category[] = [
   "Category E",
 ];
 
-/** Short gloss shown wherever a bare "Category X" would leave visitors guessing. */
-export const CATEGORY_LABEL: Record<Category, string> = {
-  "Category A": "cars ≤1600cc & ≤130bhp",
-  "Category B": "larger / more powerful cars",
-  "Category C": "goods vehicles & buses",
-  "Category D": "motorcycles",
-  "Category E": "open — any vehicle type",
+/** Classification criteria shown under each category name (one bullet per line). */
+export const CATEGORY_LABEL: Record<Category, string[]> = {
+  "Category A": [
+    "Non-electric: up to 1,600cc and max output up to 97kW (≈130bhp)",
+    "Fully electric: max output up to 110kW (≈147bhp)",
+  ],
+  "Category B": [
+    "Non-electric: above 1,600cc or max output above 97kW (130bhp)",
+    "Fully electric: max output above 110kW (147bhp)",
+  ],
+  "Category C": [
+    "Goods vehicles & buses — trucks, prime movers, vans, buses",
+  ],
+  "Category D": [
+    "Motorcycles — all two-wheeled vehicles",
+  ],
+  "Category E": [
+    "Open — any vehicle type except motorcycles",
+    "Often used by dealerships to register larger Cat B cars",
+  ],
 };
 
 export interface Round {

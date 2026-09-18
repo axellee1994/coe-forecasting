@@ -38,7 +38,13 @@ export function ForecastCard({
           <CardTitle>{category}</CardTitle>
           <span className="text-meta ml-auto">next round</span>
         </div>
-        <CardDescription>{CATEGORY_LABEL[category]}</CardDescription>
+        <CardDescription className="text-xs">
+          {CATEGORY_LABEL[category].map((line) => (
+            <span key={line} className="block">
+              – {line}
+            </span>
+          ))}
+        </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-1.5">
         <div className="text-4xl font-bold tracking-tight">{sgd(forecast)}</div>
