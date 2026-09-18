@@ -76,7 +76,7 @@ export function PremiumChart({ rounds }: { rounds: Round[] }) {
         </div>
       </div>
 
-      <ResponsiveContainer width="100%" height={340}>
+      <ResponsiveContainer width="100%" height={420}>
         <LineChart data={points} margin={{ top: 4, right: 8, bottom: 0, left: 0 }}>
           <CartesianGrid stroke="var(--border)" strokeDasharray="2 4" vertical={false} />
           <XAxis

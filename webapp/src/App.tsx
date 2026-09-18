@@ -30,7 +30,7 @@ export default function App() {
   const forecastStale = latestLive !== null && latestLive > modelBuiltOn;
 
   return (
-    <main className="mx-auto flex max-w-4xl flex-col gap-10 px-5 py-10 md:py-14">
+    <main className="mx-auto flex max-w-7xl flex-col gap-10 px-5 py-10 md:py-14">
       {/* header */}
       <header className="animate-content-in flex flex-col gap-2">
         <p className="text-meta">Singapore · Certificate of Entitlement</p>
@@ -54,11 +54,11 @@ export default function App() {
       <div className="border-t border-ink" />
 
       {/* forecast headlines */}
-      <section className="animate-content-in grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="animate-content-in grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {CATEGORIES.map((category) => (
           <ForecastCard key={category} category={category} artifacts={MODEL.categories[category]} />
         ))}
-        <p className="text-meta sm:col-span-2 lg:col-span-3">
+        <p className="text-meta sm:col-span-2 lg:col-span-3 xl:col-span-5">
           forecasting the round after {roundLabel(MODEL.categories["Category A"].latest_round)} ·{" "}
           {MODEL.final_model}
         </p>

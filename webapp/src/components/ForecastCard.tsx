@@ -46,8 +46,12 @@ export function ForecastCard({
           ))}
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-col gap-1.5">
-        <div className="text-4xl font-bold tracking-tight">{sgd(forecast)}</div>
+      {/* mt-auto anchors the numbers to the card bottom, so they stay on one
+          line across the row even when the criteria text above differs in height */}
+      <CardContent className="mt-auto flex flex-col gap-1.5">
+        <div className="text-3xl font-bold tracking-tight xl:text-[1.7rem] 2xl:text-3xl">
+          {sgd(forecast)}
+        </div>
         <div className="text-sm text-muted-foreground">
           95% interval {sgd(low)} – {sgd(high)}
         </div>
