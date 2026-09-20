@@ -42,7 +42,6 @@ export const CATEGORY_LABEL: Record<Category, string[]> = {
   ],
   "Category E": [
     "Open — any vehicle type except motorcycles",
-    "Often used by dealerships to register larger Cat B cars",
   ],
 };
 
