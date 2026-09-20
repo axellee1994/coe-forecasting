@@ -45,7 +45,7 @@ export default function App() {
     <main className="mx-auto flex max-w-7xl flex-col gap-10 px-5 py-10 md:py-14">
       {/* header */}
       <header className="animate-content-in flex flex-col gap-2">
-        <p className="text-meta">Singapore · Certificate of Entitlement</p>
+        {/* <p className="text-meta">Singapore · Certificate of Entitlement</p> */}
         <h1 className="text-3xl font-bold tracking-tight md:text-4xl">COE Price Forecast</h1>
         <p className="max-w-prose text-muted-foreground">
           One-bidding-round-ahead forecasts for all five COE categories — cars, goods

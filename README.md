@@ -1,5 +1,7 @@
 # COE Price Forecast
 
+**Live site: [coe-forecasting.vercel.app](https://coe-forecasting.vercel.app)**
+
 One-bidding-round-ahead forecasts for Singapore's Certificate of Entitlement (COE)
 premiums — all five categories, each from its own SARIMA model, with an **honestly
 backtested error rate** shown next to the naive baseline it has to beat.
