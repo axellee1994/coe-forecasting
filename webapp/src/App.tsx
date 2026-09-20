@@ -72,7 +72,7 @@ export default function App() {
           <ForecastCard key={category} category={category} artifacts={MODEL.categories[category]} />
         ))}
         <p className="text-meta sm:col-span-2 lg:col-span-3 xl:col-span-5">
-          forecasting the round after {roundLabel(MODEL.categories["Category A"].latest_round)}
+          Forecasting the round after {roundLabel(MODEL.categories["Category A"].latest_round)}
         </p>
       </section>
 
