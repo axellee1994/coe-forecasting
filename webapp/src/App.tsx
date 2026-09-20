@@ -6,10 +6,22 @@ import { PremiumChart } from "@/components/PremiumChart";
 import { CATEGORIES, MODEL, loadRounds, type CoeData } from "@/lib/coe";
 import { roundLabel } from "@/lib/format";
 
-/* Single-page dashboard, V9 layout language: mono metadata lines,
-   1px ink dividers between sections, generous whitespace. The page
-   renders immediately from the snapshot-typed state and swaps to live
-   data when the fetch resolves — no spinner-first experience. */
+function ChartSkeleton() {
+  return (
+    <div className="flex flex-col gap-3" aria-hidden>
+      <div className="flex items-center justify-between">
+        <div className="h-5 w-32 animate-pulse rounded bg-secondary" />
+        <div className="flex gap-1">
+          <div className="h-7 w-8 animate-pulse rounded-md bg-secondary" />
+          <div className="h-7 w-8 animate-pulse rounded-md bg-secondary" />
+          <div className="h-7 w-8 animate-pulse rounded-md bg-secondary" />
+        </div>
+      </div>
+      <div className="h-[280px] sm:h-[360px] md:h-[420px] rounded-md bg-secondary animate-pulse" />
+    </div>
+  );
+}
+
 export default function App() {
   const [data, setData] = useState<CoeData | null>(null);
 
@@ -69,7 +81,7 @@ export default function App() {
       {/* history chart */}
       <section className="animate-content-in">
         {data === null ? (
-          <div className="h-[340px]" aria-hidden />
+          <ChartSkeleton />
         ) : (
           <PremiumChart rounds={data.rounds} />
         )}
@@ -83,8 +95,8 @@ export default function App() {
       </section>
 
       <footer className="text-meta border-t border-ink pt-4">
-        data: LTA via data.gov.sg · model: seasonal-free ARIMA on log premiums with drift,
-        refit after every bidding round · not financial advice
+        data: LTA via data.gov.sg ·
+        model: seasonal-free ARIMA on log premiums with drift and refitting after every bidding round · PLEASE DO NOT TAKE THIS AS FINANCIAL ADVICE ·
       </footer>
     </main>
   );

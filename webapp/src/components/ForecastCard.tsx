@@ -39,20 +39,25 @@ export function ForecastCard({
           <span className="text-meta ml-auto">next round</span>
         </div>
         <CardDescription className="text-xs">
-          {CATEGORY_LABEL[category].map((line) => (
-            <span key={line} className="block">
-              – {line}
-            </span>
-          ))}
+          {CATEGORY_LABEL[category].map((line) => {
+            const sep = line.indexOf(": ") !== -1 ? ": " : line.indexOf(" — ") !== -1 ? " — " : null;
+            if (!sep) return <span key={line} className="block">{line}</span>;
+            const [prefix, ...rest] = line.split(sep);
+            return (
+              <span key={line} className="block">
+                <span className="font-medium text-foreground">{prefix}</span>: {rest.join(sep)}
+              </span>
+            );
+          })}
         </CardDescription>
       </CardHeader>
       {/* mt-auto anchors the numbers to the card bottom, so they stay on one
           line across the row even when the criteria text above differs in height */}
       <CardContent className="mt-auto flex flex-col gap-1.5">
-        <div className="text-3xl font-bold tracking-tight xl:text-[1.7rem] 2xl:text-3xl">
+        <div className="text-2xl font-bold tracking-tight sm:text-[1.35rem] md:text-3xl xl:text-[1.7rem] 2xl:text-3xl">
           {sgd(forecast)}
         </div>
-        <div className="text-sm text-muted-foreground">
+        <div className="text-xs text-muted-foreground sm:text-sm">
           95% interval {sgd(low)} – {sgd(high)}
         </div>
         <div className="mt-1 flex items-center gap-1.5 text-sm">

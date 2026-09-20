@@ -13,20 +13,19 @@ export function BacktestTable() {
 
   return (
     <div className="flex flex-col gap-3">
-      <h2 className="font-medium">How accurate is it, honestly?</h2>
+      <h2 className="font-medium">How accurate is this forecasting?</h2>
       <p className="max-w-prose text-sm text-muted-foreground">
-        Backtested by forecasting the most recent {MODEL.holdout_rounds} bidding rounds
-        one round ahead, each made without seeing its answer, then compared to what
-        actually happened. The naive baseline — “next premium = last premium” — is the
-        bar any real model must clear.
+        Backtested is done over the most recent {MODEL.holdout_rounds} bidding rounds. The model trains on all data up to a given round, forecasts the next one, 
+        then steps forward and repeats. Each prediction is made without seeing 
+        its answer, then compared to the actual dataset.
       </p>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-ink text-left">
-              <th className="py-2 pr-4 font-medium">Mean error (MAPE)</th>
+              <th className="sticky left-0 bg-background py-2 pr-4 font-medium">Mean error (MAPE)</th>
               {CATEGORIES.map((category) => (
-                <th key={category} className="py-2 pr-4 font-medium">
+                <th key={category} className="whitespace-nowrap py-2 px-3 font-medium">
                   {category}
                 </th>
               ))}
@@ -34,17 +33,17 @@ export function BacktestTable() {
           </thead>
           <tbody className="font-mono">
             <tr className="border-b">
-              <td className="py-2 pr-4 font-sans">This model</td>
+              <td className="sticky left-0 bg-background py-2 pr-4 font-sans">This model</td>
               {CATEGORIES.map((category) => (
-                <td key={category} className="py-2 pr-4">
+                <td key={category} className="py-2 px-3">
                   {MODEL.categories[category].backtest_mape.toFixed(2)}%
                 </td>
               ))}
             </tr>
             <tr className="border-b">
-              <td className="py-2 pr-4 font-sans text-muted-foreground">Naive baseline</td>
+              <td className="sticky left-0 bg-background py-2 pr-4 font-sans text-muted-foreground">Last price guess</td>
               {CATEGORIES.map((category) => (
-                <td key={category} className="py-2 pr-4 text-muted-foreground">
+                <td key={category} className="py-2 px-3 text-muted-foreground">
                   {MODEL.categories[category].naive_mape.toFixed(2)}%
                 </td>
               ))}
@@ -53,16 +52,16 @@ export function BacktestTable() {
         </table>
       </div>
       <p className="max-w-prose text-sm text-muted-foreground">
-        The model beats naive in {beats.length === CATEGORIES.length ? "every category" : `Cat ${short(beats)}`}
+        In Cat {short(beats)}, the model's predictions were slightly more accurate
+        than the last price guess.
         {loses.length > 0 && (
           <>
-            {" "}and loses narrowly in Cat {short(loses)} — shown here rather than hidden
+            {" "}However in Cat {short(loses)}, the last price guess was actually slightly
+            more accurate.
           </>
         )}
-        . The margins are modest — COE premiums are close to a random walk, and anyone
-        claiming dramatically better one-round accuracy should be asked how they
-        backtested. Forecasts lag sharp turns by about one round; treat the interval,
-        not the point, as the promise.
+        {" "}COE prices tend to fluctuate randomly, so no model predicts them dramatically
+        well. The differences either way are small (fractions of a percent). 
       </p>
     </div>
   );

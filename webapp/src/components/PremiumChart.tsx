@@ -76,53 +76,55 @@ export function PremiumChart({ rounds }: { rounds: Round[] }) {
         </div>
       </div>
 
-      <ResponsiveContainer width="100%" height={420}>
-        <LineChart data={points} margin={{ top: 4, right: 8, bottom: 0, left: 0 }}>
-          <CartesianGrid stroke="var(--border)" strokeDasharray="2 4" vertical={false} />
-          <XAxis
-            dataKey="date"
-            tickFormatter={shortDate}
-            tick={{ fontSize: 11, fill: "var(--muted-foreground)" }}
-            tickLine={false}
-            axisLine={{ stroke: "var(--border)" }}
-            minTickGap={64}
-          />
-          <YAxis
-            tickFormatter={(value: number) => `${Math.round(value / 1000)}k`}
-            tick={{ fontSize: 11, fill: "var(--muted-foreground)" }}
-            tickLine={false}
-            axisLine={false}
-            width={36}
-            domain={["auto", "auto"]}
-          />
-          <Tooltip
-            formatter={(value) => sgd(Number(value))}
-            labelFormatter={(value) => roundLabel(String(value))}
-            contentStyle={{
-              borderRadius: "var(--radius)",
-              border: "1px solid var(--border)",
-              fontSize: "0.8rem",
-            }}
-          />
-          <Legend
-            formatter={(value) => (
-              <span style={{ color: "var(--foreground)", fontSize: "0.8rem" }}>{value}</span>
-            )}
-          />
-          {CATEGORIES.map((category) => (
-            <Line
-              key={category}
-              type="monotone"
-              dataKey={category}
-              stroke={CATEGORY_COLOR[category]}
-              strokeWidth={2}
-              dot={false}
-              activeDot={{ r: 4 }}
-              connectNulls /* the COVID Apr–Jun 2020 suspension gap */
+      <div className="h-[280px] sm:h-[360px] md:h-[420px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={points} margin={{ top: 4, right: 8, bottom: 0, left: 0 }}>
+            <CartesianGrid stroke="var(--border)" strokeDasharray="2 4" vertical={false} />
+            <XAxis
+              dataKey="date"
+              tickFormatter={shortDate}
+              tick={{ fontSize: 11, fill: "var(--muted-foreground)" }}
+              tickLine={false}
+              axisLine={{ stroke: "var(--border)" }}
+              minTickGap={64}
             />
-          ))}
-        </LineChart>
-      </ResponsiveContainer>
+            <YAxis
+              tickFormatter={(value: number) => `${Math.round(value / 1000)}k`}
+              tick={{ fontSize: 11, fill: "var(--muted-foreground)" }}
+              tickLine={false}
+              axisLine={false}
+              width={40}
+              domain={["auto", "auto"]}
+            />
+            <Tooltip
+              formatter={(value) => sgd(Number(value))}
+              labelFormatter={(value) => roundLabel(String(value))}
+              contentStyle={{
+                borderRadius: "var(--radius)",
+                border: "1px solid var(--border)",
+                fontSize: "0.8rem",
+              }}
+            />
+            <Legend
+              formatter={(value) => (
+                <span style={{ color: "var(--foreground)", fontSize: "0.8rem" }}>{value}</span>
+              )}
+            />
+            {CATEGORIES.map((category) => (
+              <Line
+                key={category}
+                type="monotone"
+                dataKey={category}
+                stroke={CATEGORY_COLOR[category]}
+                strokeWidth={2}
+                dot={false}
+                activeDot={{ r: 4 }}
+                connectNulls
+              />
+            ))}
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 }
