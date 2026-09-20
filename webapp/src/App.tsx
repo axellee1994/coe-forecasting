@@ -48,9 +48,10 @@ export default function App() {
         {/* <p className="text-meta">Singapore · Certificate of Entitlement</p> */}
         <h1 className="text-3xl font-bold tracking-tight md:text-4xl">COE Price Forecast</h1>
         <p className="max-w-prose text-muted-foreground">
-          One-bidding-round-ahead forecasts for all five COE categories — cars, goods
-          vehicles, motorcycles and the open category — each from its own SARIMA model
-          with an honestly backtested error rate.
+          Predictive bidding forecasts (one round ahead) for all five COE categories: cars, goods
+          vehicles, motorcycles and the open category.
+        </p>
+        <p className="max-w-prose text-muted-foreground">
         </p>
         <p className="text-meta">
           model refreshed {new Date(MODEL.generated).toLocaleDateString("en-SG")} · data:{" "}
