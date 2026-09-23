@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-18T17:46:26",
+  "generated": "2026-09-23T15:08:47",
   "final_model": "ARIMA on log(premium) with drift",
   "holdout_rounds": 24,
   "categories": {
@@ -9,14 +9,14 @@
         1,
         3
       ],
-      "backtest_mape": 3.65,
-      "naive_mape": 3.83,
-      "latest_round": "2026-09-01",
-      "latest_premium": 133009,
+      "backtest_mape": 3.31,
+      "naive_mape": 3.48,
+      "latest_round": "2026-09-15",
+      "latest_premium": 131890,
       "next_round": {
-        "forecast": 132426,
-        "low": 115747,
-        "high": 151508
+        "forecast": 132576,
+        "low": 115995,
+        "high": 151528
       }
     },
     "Category B": {
@@ -25,14 +25,14 @@
         1,
         3
       ],
-      "backtest_mape": 4.54,
-      "naive_mape": 4.64,
-      "latest_round": "2026-09-01",
-      "latest_premium": 135001,
+      "backtest_mape": 4.38,
+      "naive_mape": 4.42,
+      "latest_round": "2026-09-15",
+      "latest_premium": 133000,
       "next_round": {
-        "forecast": 135029,
-        "low": 116754,
-        "high": 156164
+        "forecast": 133270,
+        "low": 115292,
+        "high": 154051
       }
     },
     "Category C": {
@@ -41,14 +41,14 @@
         1,
         3
       ],
-      "backtest_mape": 1.86,
-      "naive_mape": 1.94,
-      "latest_round": "2026-09-01",
-      "latest_premium": 93101,
+      "backtest_mape": 1.87,
+      "naive_mape": 1.93,
+      "latest_round": "2026-09-15",
+      "latest_premium": 92144,
       "next_round": {
-        "forecast": 94319,
-        "low": 82867,
-        "high": 107353
+        "forecast": 92081,
+        "low": 80912,
+        "high": 104792
       }
     },
     "Category D": {
@@ -57,14 +57,14 @@
         1,
         3
       ],
-      "backtest_mape": 4.63,
-      "naive_mape": 4.52,
-      "latest_round": "2026-09-01",
-      "latest_premium": 12556,
+      "backtest_mape": 4.61,
+      "naive_mape": 4.59,
+      "latest_round": "2026-09-15",
+      "latest_premium": 12201,
       "next_round": {
-        "forecast": 12251,
-        "low": 10037,
-        "high": 14952
+        "forecast": 12273,
+        "low": 10058,
+        "high": 14976
       }
     },
     "Category E": {
@@ -73,14 +73,14 @@
         1,
         3
       ],
-      "backtest_mape": 2.71,
-      "naive_mape": 2.69,
-      "latest_round": "2026-09-01",
-      "latest_premium": 137890,
+      "backtest_mape": 2.35,
+      "naive_mape": 2.34,
+      "latest_round": "2026-09-15",
+      "latest_premium": 137000,
       "next_round": {
-        "forecast": 138411,
-        "low": 123956,
-        "high": 154552
+        "forecast": 136392,
+        "low": 122165,
+        "high": 152277
       }
     }
   }
